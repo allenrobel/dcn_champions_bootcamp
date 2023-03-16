@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+"""
+Simple demonstration for using the python requests library to both 
+send configuration to an NX-OS switch and to retrieve the output
+of show commands.
+"""
 import requests
 import json
 import urllib3
@@ -202,8 +207,8 @@ session = requests.Session()
 
 params = {}
 params["username"] = "admin"
-params["password"] = "Cisco!2345"
-params["ip4"] = "172.22.150.102"
+params["password"] = "mypassword"
+params["ip4"] = "10.1.1.1"
 params["timeout"] = 10
 params["proxies"] = {}
 params["cookies"] = {}
