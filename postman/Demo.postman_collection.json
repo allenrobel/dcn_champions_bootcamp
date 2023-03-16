@@ -1,0 +1,709 @@
+{
+	"info": {
+		"_postman_id": "7a202c20-c8a8-4a50-976d-f37b10bd48cb",
+		"name": "Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7476253"
+	},
+	"item": [
+		{
+			"name": "NX-OS",
+			"item": [
+				{
+					"name": "config interface Eth1/11, Eth1/12",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ins_api\": {\n        \"version\": \"1.0\",\n        \"type\": \"cli_conf\",\n        \"chunk\": \"0\",\n        \"sid\": \"1\",\n        \"input\": \"interface Eth1/11 ; description aaa ; interface Eth1/12 ; description bbb\",\n        \"output_format\": \"json\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}",
+							"host": [
+								"{{BASE_URL}}"
+							]
+						},
+						"description": "Get cookie from NXAPI device"
+					},
+					"response": [
+						{
+							"name": "200 response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ins_api\": {\n        \"version\": \"1.0\",\n        \"type\": \"cli_conf\",\n        \"chunk\": \"0\",\n        \"sid\": \"1\",\n        \"input\": \"interface Eth1/11 ; description aaa ; interface Eth1/12 ; description bbb\",\n        \"output_format\": \"json\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}",
+									"host": [
+										"{{BASE_URL}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.19.6"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Mar 2023 20:39:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/json; charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "anticsrf",
+									"value": "E90kKeqABPXWo6MQdaYl/pRYdV4="
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "block-all-mixed-content; base-uri 'self'; default-src 'self'; script-src 'self' 'nonce-kHsWjstgTK9T4P3wd4wbwfHG4zhTyNC0'; style-src 'self' 'nonce-kHsWjstgTK9T4P3wd4wbwfHG4zhTyNC0'; img-src 'self'; connect-src 'self'; font-src 'self'; object-src 'self'; media-src 'self'; form-action 'self'; frame-ancestors 'self';"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ins_api\": {\n        \"version\": \"1.0\",\n        \"sid\": \"eoc\",\n        \"type\": \"cli_conf\",\n        \"outputs\": {\n            \"output\": [\n                {\n                    \"code\": \"200\",\n                    \"msg\": \"Success\",\n                    \"body\": {}\n                },\n                {\n                    \"code\": \"200\",\n                    \"msg\": \"Success\",\n                    \"body\": {}\n                },\n                {\n                    \"code\": \"200\",\n                    \"msg\": \"Success\",\n                    \"body\": {}\n                },\n                {\n                    \"code\": \"200\",\n                    \"msg\": \"Success\",\n                    \"body\": {}\n                }\n            ]\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "show interface Eth1/11",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Description Matches\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.ins_api.outputs.output.body.TABLE_interface.ROW_interface.desc).to.eql(\"aaa\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ins_api\": {\n        \"version\": \"1.0\",\n        \"type\": \"cli_show\",\n        \"chunk\": \"0\",\n        \"sid\": \"sid\",\n        \"input\": \"show interface Eth1/11\",\n        \"output_format\": \"json\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}",
+							"host": [
+								"{{BASE_URL}}"
+							]
+						},
+						"description": "Get cookie from NXAPI device"
+					},
+					"response": [
+						{
+							"name": "200 response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ins_api\": {\n        \"version\": \"1.0\",\n        \"type\": \"cli_show\",\n        \"chunk\": \"0\",\n        \"sid\": \"sid\",\n        \"input\": \"show interface Eth1/11\",\n        \"output_format\": \"json\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}",
+									"host": [
+										"{{BASE_URL}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.19.6"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Mar 2023 20:37:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/json; charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "nxapi_auth=dzqnf:hDyrxR3Hqa3+2RweCVojAAW3Zgg=; Secure; HttpOnly;"
+								},
+								{
+									"key": "anticsrf",
+									"value": "E90kKeqABPXWo6MQdaYl/pRYdV4="
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "block-all-mixed-content; base-uri 'self'; default-src 'self'; script-src 'self' 'nonce-tPzZljhaXEZQi9Go0q01EInFcuUL9Xh1'; style-src 'self' 'nonce-tPzZljhaXEZQi9Go0q01EInFcuUL9Xh1'; img-src 'self'; connect-src 'self'; font-src 'self'; object-src 'self'; media-src 'self'; form-action 'self'; frame-ancestors 'self';"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ins_api\": {\n        \"type\": \"cli_show\",\n        \"version\": \"1.0\",\n        \"sid\": \"eoc\",\n        \"outputs\": {\n            \"output\": {\n                \"input\": \"show interface Eth1/11\",\n                \"msg\": \"Success\",\n                \"code\": \"200\",\n                \"body\": {\n                    \"TABLE_interface\": {\n                        \"ROW_interface\": {\n                            \"interface\": \"Ethernet1/11\",\n                            \"state\": \"up\",\n                            \"admin_state\": \"up\",\n                            \"share_state\": \"Dedicated\",\n                            \"eth_bundle\": \"Po11\",\n                            \"eth_hw_desc\": \"100/1000/10000/25000 Ethernet\",\n                            \"eth_hw_addr\": \"00a3.8ebf.eb00\",\n                            \"eth_bia_addr\": \"00a3.8ebf.eb00\",\n                            \"eth_mtu\": \"9216\",\n                            \"eth_bw\": 10000000,\n                            \"eth_bw_str\": \"10000000 Kbit\",\n                            \"eth_dly\": 10,\n                            \"eth_reliability\": \"255\",\n                            \"eth_txload\": \"31\",\n                            \"eth_rxload\": \"1\",\n                            \"encapsulation\": \"ARPA\",\n                            \"medium\": \"broadcast\",\n                            \"eth_mode\": \"trunk\",\n                            \"eth_duplex\": \"full\",\n                            \"eth_speed\": \"10 Gb/s\",\n                            \"eth_media\": \"10G\",\n                            \"eth_beacon\": \"off\",\n                            \"eth_autoneg\": \"on\",\n                            \"eth_in_flowctrl\": \"off\",\n                            \"eth_out_flowctrl\": \"off\",\n                            \"eth_mdix\": \"off\",\n                            \"eth_ratemode\": \"dedicated\",\n                            \"eth_swt_monitor\": \"off\",\n                            \"eth_ethertype\": \"0x8100\",\n                            \"eth_eee_state\": \"n/a\",\n                            \"eth_admin_fec_state\": \"auto\",\n                            \"eth_oper_fec_state\": \"off\",\n                            \"eth_link_flapped\": \"1d04h\",\n                            \"eth_clear_counters\": \"1d04h\",\n                            \"eth_reset_cntr\": 3,\n                            \"eth_load_interval1_rx\": 30,\n                            \"eth_inrate1_bits\": \"200\",\n                            \"eth_inrate1_pkts\": \"0\",\n                            \"eth_load_interval1_tx\": \"30\",\n                            \"eth_outrate1_bits\": \"1234172848\",\n                            \"eth_outrate1_pkts\": \"1205241\",\n                            \"eth_inrate1_summary_bits\": \"200 bps\",\n                            \"eth_inrate1_summary_pkts\": \"0 pps\",\n                            \"eth_outrate1_summary_bits\": \"1.23 Gbps\",\n                            \"eth_outrate1_summary_pkts\": \"1.21 Mpps\",\n                            \"eth_load_interval2_rx\": \"300\",\n                            \"eth_inrate2_bits\": \"104\",\n                            \"eth_inrate2_pkts\": \"0\",\n                            \"eth_load_interval2_tx\": \"300\",\n                            \"eth_outrate2_bits\": \"1234174712\",\n                            \"eth_outrate2_pkts\": \"1205222\",\n                            \"eth_inrate2_summary_bits\": \"104 bps\",\n                            \"eth_inrate2_summary_pkts\": \"0 pps\",\n                            \"eth_outrate2_summary_bits\": \"1.23 Gbps\",\n                            \"eth_outrate2_summary_pkts\": \"1.21 Mpps\",\n                            \"eth_inucast\": 0,\n                            \"eth_inmcast\": 6929,\n                            \"eth_inbcast\": 0,\n                            \"eth_inpkts\": 6929,\n                            \"eth_inbytes\": 1417210,\n                            \"eth_jumbo_inpkts\": \"0\",\n                            \"eth_storm_supp\": \"0\",\n                            \"eth_runts\": 0,\n                            \"eth_giants\": 0,\n                            \"eth_crc\": \"0\",\n                            \"eth_nobuf\": 0,\n                            \"eth_inerr\": \"0\",\n                            \"eth_frame\": \"0\",\n                            \"eth_overrun\": \"0\",\n                            \"eth_underrun\": \"0\",\n                            \"eth_ignored\": \"0\",\n                            \"eth_watchdog\": \"0\",\n                            \"eth_bad_eth\": \"0\",\n                            \"eth_bad_proto\": \"0\",\n                            \"eth_in_ifdown_drops\": \"0\",\n                            \"eth_dribble\": \"0\",\n                            \"eth_indiscard\": \"0\",\n                            \"eth_inpause\": \"0\",\n                            \"eth_stomped_crc\": 0,\n                            \"eth_outucast\": 117076102153,\n                            \"eth_outmcast\": 105940,\n                            \"eth_outbcast\": 19402,\n                            \"eth_outpkts\": 117076227495,\n                            \"eth_outbytes\": 14985751584819,\n                            \"eth_jumbo_outpkts\": \"0\",\n                            \"eth_outerr\": \"0\",\n                            \"eth_coll\": \"0\",\n                            \"eth_deferred\": \"0\",\n                            \"eth_latecoll\": \"0\",\n                            \"eth_lostcarrier\": \"0\",\n                            \"eth_nocarrier\": \"0\",\n                            \"eth_babbles\": \"0\",\n                            \"eth_outdiscard\": \"0\",\n                            \"eth_outpause\": \"0\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}"
+						},
+						{
+							"name": "400 response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ins_api\": {\n        \"version\": \"1.0\",\n        \"type\": \"cli_show\",\n        \"chunk\": \"0\",\n        \"sid\": \"sid\",\n        \"input\": \"show interfacedd Eth1/11\",\n        \"output_format\": \"json\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}",
+									"host": [
+										"{{BASE_URL}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.19.6"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Mar 2023 21:24:59 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/json; charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "nxapi_auth=dzqnf:7xXE5XkcjIuMqbIL8pOcxGfn0qs=; Secure; HttpOnly;"
+								},
+								{
+									"key": "anticsrf",
+									"value": "uQAcfRgX3hk5pyrmBYD0o+34SMA="
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "block-all-mixed-content; base-uri 'self'; default-src 'self'; script-src 'self' 'nonce-afjl9QpfVKKHBR8KcavjmYRdLKfvWJma'; style-src 'self' 'nonce-afjl9QpfVKKHBR8KcavjmYRdLKfvWJma'; img-src 'self'; connect-src 'self'; font-src 'self'; object-src 'self'; media-src 'self'; form-action 'self'; frame-ancestors 'self';"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ins_api\": {\n        \"type\": \"cli_show\",\n        \"version\": \"1.0\",\n        \"sid\": \"eoc\",\n        \"outputs\": {\n            \"output\": {\n                \"clierror\": \"% Invalid command\\n\",\n                \"input\": \"show interfacedd Eth1/11\",\n                \"msg\": \"Input CLI command error\",\n                \"code\": \"400\"\n            }\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "show hostname",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Description Matches\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.ins_api.outputs.output.body.TABLE_interface.ROW_interface.desc).to.eql(\"aaa\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ins_api\": {\n    \"version\": \"1.0\",\n    \"type\": \"cli_show\",\n    \"chunk\": \"0\",\n    \"sid\": \"sid\",\n    \"input\": \"show hostname\",\n    \"output_format\": \"json\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}",
+							"host": [
+								"{{BASE_URL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "Cisco!2345",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "NDFC",
+			"item": [
+				{
+					"name": "Fabric Create (Easy_Fabric)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"BGP_AS\": {{easy_fabric_3_asn}},\n    \"DCI_SUBNET_RANGE\": \"10.234.0.0/16\",\n    \"REPLICATION_MODE\": \"Ingress\",\n    \"SUBNET_RANGE\": \"172.22.150.0/24\",\n    \"LOOPBACK0_IP_RANGE\": \"10.11.0.0/16\",\n    \"LOOPBACK1_IP_RANGE\": \"10.12.0.0/16\",\n    \"DHCP_ENABLE\": true,\n    \"ENABLE_PVLAN\": \"false\",\n    \"ENABLE_PVLAN_PREV\": \"false\",\n    \"DHCP_START\": \"172.22.150.99\",\n    \"DHCP_END\": \"172.22.150.99\",\n    \"BOOTSTRAP_ENABLE\": true,\n    \"MGMT_GW\": \"172.22.150.1\"\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/appcenter/cisco/ndfc/api/v1/lan-fabric/rest/control/fabrics/{{easy_fabric_3}}/Easy_Fabric",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"appcenter",
+								"cisco",
+								"ndfc",
+								"api",
+								"v1",
+								"lan-fabric",
+								"rest",
+								"control",
+								"fabrics",
+								"{{easy_fabric_3}}",
+								"Easy_Fabric"
+							],
+							"query": [
+								{
+									"key": "BGP_AS",
+									"value": "65003",
+									"description": "BGP AS",
+									"disabled": true
+								},
+								{
+									"key": "REPLICATION_MODE",
+									"value": "Ingress",
+									"disabled": true
+								},
+								{
+									"key": "SUBNET_RANGE",
+									"value": "10.10.0.0/16",
+									"disabled": true
+								},
+								{
+									"key": "LOOPBACK1_IP_RANGE",
+									"value": "10.12.0.0/16",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"BGP_AS\": {{easy_fabric_3_asn}},\n    \"DCI_SUBNET_RANGE\": \"10.234.0.0/16\",\n    \"REPLICATION_MODE\": \"Ingress\",\n    \"SUBNET_RANGE\": \"172.22.150.0/24\",\n    \"LOOPBACK0_IP_RANGE\": \"10.11.0.0/16\",\n    \"LOOPBACK1_IP_RANGE\": \"10.12.0.0/16\",\n    \"DHCP_ENABLE\": true,\n    \"ENABLE_PVLAN\": \"false\",\n    \"ENABLE_PVLAN_PREV\": \"false\",\n    \"DHCP_START\": \"172.22.150.99\",\n    \"DHCP_END\": \"172.22.150.99\",\n    \"BOOTSTRAP_ENABLE\": true,\n    \"MGMT_GW\": \"172.22.150.1\"\n} ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/appcenter/cisco/ndfc/api/v1/lan-fabric/rest/control/fabrics/{{easy_fabric_3}}/Easy_Fabric",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"appcenter",
+										"cisco",
+										"ndfc",
+										"api",
+										"v1",
+										"lan-fabric",
+										"rest",
+										"control",
+										"fabrics",
+										"{{easy_fabric_3}}",
+										"Easy_Fabric"
+									],
+									"query": [
+										{
+											"key": "BGP_AS",
+											"value": "65003",
+											"description": "BGP AS",
+											"disabled": true
+										},
+										{
+											"key": "REPLICATION_MODE",
+											"value": "Ingress",
+											"disabled": true
+										},
+										{
+											"key": "SUBNET_RANGE",
+											"value": "10.10.0.0/16",
+											"disabled": true
+										},
+										{
+											"key": "LOOPBACK1_IP_RANGE",
+											"value": "10.12.0.0/16",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "7505"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 01 Mar 2023 19:23:25 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "-1"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "-1"
+								},
+								{
+									"key": "X-Ratelimit-Reset",
+									"value": "1559582945"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 9,\n    \"fabricId\": \"FABRIC-9\",\n    \"fabricName\": \"Easy_Fabric_1\",\n    \"fabricType\": \"Switch_Fabric\",\n    \"fabricTypeFriendly\": \"Switch Fabric\",\n    \"fabricTechnology\": \"VXLANFabric\",\n    \"fabricTechnologyFriendly\": \"VXLAN Fabric\",\n    \"provisionMode\": \"DCNMTopDown\",\n    \"deviceType\": \"n9k\",\n    \"replicationMode\": \"Ingress\",\n    \"asn\": \"65011\",\n    \"siteId\": \"\",\n    \"templateName\": \"Easy_Fabric\",\n    \"nvPairs\": {\n        \"MSO_SITE_ID\": \"\",\n        \"PHANTOM_RP_LB_ID1\": \"\",\n        \"PHANTOM_RP_LB_ID2\": \"\",\n        \"PHANTOM_RP_LB_ID3\": \"\",\n        \"IBGP_PEER_TEMPLATE\": \"\",\n        \"PHANTOM_RP_LB_ID4\": \"\",\n        \"abstract_ospf\": \"base_ospf\",\n        \"FEATURE_PTP\": \"false\",\n        \"L3_PARTITION_ID_RANGE\": \"50000-59000\",\n        \"DHCP_START_INTERNAL\": \"\",\n        \"SSPINE_COUNT\": \"0\",\n        \"ADVERTISE_PIP_BGP\": \"false\",\n        \"FABRIC_VPC_QOS_POLICY_NAME\": \"\",\n        \"BFD_PIM_ENABLE\": \"\",\n        \"DHCP_END\": \"172.22.150.99\",\n        \"UNDERLAY_IS_V6\": \"false\",\n        \"FABRIC_VPC_DOMAIN_ID\": \"\",\n        \"SEED_SWITCH_CORE_INTERFACES\": \"\",\n        \"FABRIC_MTU_PREV\": \"9216\",\n        \"BFD_ISIS_ENABLE\": \"\",\n        \"HD_TIME\": \"180\",\n        \"OSPF_AUTH_ENABLE\": \"false\",\n        \"LOOPBACK1_IPV6_RANGE\": \"\",\n        \"ROUTER_ID_RANGE\": \"\",\n        \"ENABLE_MACSEC\": \"false\",\n        \"MSO_CONNECTIVITY_DEPLOYED\": \"\",\n        \"DEAFULT_QUEUING_POLICY_OTHER\": \"\",\n        \"MACSEC_REPORT_TIMER\": \"\",\n        \"UNNUM_DHCP_START_INTERNAL\": \"\",\n        \"PREMSO_PARENT_FABRIC\": \"\",\n        \"PTP_DOMAIN_ID\": \"\",\n        \"UNNUM_DHCP_END_INTERNAL\": \"\",\n        \"USE_LINK_LOCAL\": \"\",\n        \"AUTO_SYMMETRIC_VRF_LITE\": \"\",\n        \"BGP_AS_PREV\": \"\",\n        \"ENABLE_PBR\": \"false\",\n        \"DCI_SUBNET_TARGET_MASK\": \"30\",\n        \"VPC_PEER_LINK_PO\": \"500\",\n        \"ISIS_AUTH_ENABLE\": \"\",\n        \"REPLICATION_MODE\": \"Ingress\",\n        \"ANYCAST_RP_IP_RANGE\": \"\",\n        \"VPC_ENABLE_IPv6_ND_SYNC\": \"true\",\n        \"TCAM_ALLOCATION\": \"true\",\n        \"abstract_isis_interface\": \"isis_interface\",\n        \"SERVICE_NETWORK_VLAN_RANGE\": \"3000-3199\",\n        \"MACSEC_ALGORITHM\": \"\",\n        \"ISIS_LEVEL\": \"\",\n        \"SUBNET_TARGET_MASK\": \"30\",\n        \"abstract_anycast_rp\": \"anycast_rp\",\n        \"AUTO_SYMMETRIC_DEFAULT_VRF\": \"\",\n        \"ENABLE_NETFLOW\": \"false\",\n        \"DEAFULT_QUEUING_POLICY_R_SERIES\": \"\",\n        \"BROWNFIELD_NETWORK_NAME_FORMAT\": \"Auto_Net_VNI$$VNI$$_VLAN$$VLAN_ID$$\",\n        \"temp_vpc_peer_link\": \"int_vpc_peer_link_po\",\n        \"ENABLE_FABRIC_VPC_DOMAIN_ID\": \"false\",\n        \"IBGP_PEER_TEMPLATE_LEAF\": \"\",\n        \"DCI_SUBNET_RANGE\": \"10.234.0.0/16\",\n        \"ENABLE_NXAPI\": \"true\",\n        \"VRF_LITE_AUTOCONFIG\": \"Manual\",\n        \"MGMT_GW_INTERNAL\": \"\",\n        \"GRFIELD_DEBUG_FLAG\": \"Disable\",\n        \"VRF_VLAN_RANGE\": \"2000-2299\",\n        \"ISIS_AUTH_KEYCHAIN_NAME\": \"\",\n        \"SSPINE_ADD_DEL_DEBUG_FLAG\": \"Disable\",\n        \"abstract_bgp_neighbor\": \"evpn_bgp_rr_neighbor\",\n        \"OSPF_AUTH_KEY_ID\": \"\",\n        \"PIM_HELLO_AUTH_ENABLE\": \"\",\n        \"abstract_feature_leaf\": \"base_feature_leaf_upg\",\n        \"BFD_AUTH_ENABLE\": \"\",\n        \"LOOPBACK1_IP_RANGE\": \"10.12.0.0/16\",\n        \"BGP_LB_ID\": \"0\",\n        \"EXTRA_CONF_TOR\": \"\",\n        \"AAA_SERVER_CONF\": \"\",\n        \"VPC_PEER_KEEP_ALIVE_OPTION\": \"management\",\n        \"AUTO_VRFLITE_IFC_DEFAULT_VRF\": \"\",\n        \"enableRealTimeBackup\": \"\",\n        \"V6_SUBNET_TARGET_MASK\": \"\",\n        \"STRICT_CC_MODE\": \"false\",\n        \"BROWNFIELD_SKIP_OVERLAY_NETWORK_ATTACHMENTS\": \"false\",\n        \"VPC_PEER_LINK_VLAN\": \"3600\",\n        \"abstract_trunk_host\": \"int_trunk_host\",\n        \"BGP_AUTH_ENABLE\": \"false\",\n        \"MST_INSTANCE_RANGE\": \"\",\n        \"PM_ENABLE_PREV\": \"false\",\n        \"RP_MODE\": \"\",\n        \"enableScheduledBackup\": \"\",\n        \"BFD_OSPF_ENABLE\": \"\",\n        \"abstract_ospf_interface\": \"ospf_interface_11_1\",\n        \"MACSEC_FALLBACK_ALGORITHM\": \"\",\n        \"UNNUM_DHCP_END\": \"\",\n        \"LOOPBACK0_IP_RANGE\": \"10.11.0.0/16\",\n        \"ENABLE_AAA\": \"false\",\n        \"DEPLOYMENT_FREEZE\": \"false\",\n        \"L2_HOST_INTF_MTU_PREV\": \"9216\",\n        \"NETFLOW_MONITOR_LIST\": \"\",\n        \"NTP_SERVER_IP_LIST\": \"\",\n        \"ENABLE_AGENT\": \"false\",\n        \"OVERLAY_MODE\": \"config-profile\",\n        \"MACSEC_FALLBACK_KEY_STRING\": \"\",\n        \"FF\": \"Easy_Fabric\",\n        \"STP_ROOT_OPTION\": \"unmanaged\",\n        \"ISIS_OVERLOAD_ENABLE\": \"\",\n        \"NETFLOW_RECORD_LIST\": \"\",\n        \"FABRIC_TYPE\": \"Switch_Fabric\",\n        \"SPINE_COUNT\": \"0\",\n        \"abstract_extra_config_bootstrap\": \"extra_config_bootstrap_11_1\",\n        \"MPLS_LOOPBACK_IP_RANGE\": \"\",\n        \"LINK_STATE_ROUTING_TAG_PREV\": \"\",\n        \"DHCP_ENABLE\": \"true\",\n        \"BFD_AUTH_KEY_ID\": \"\",\n        \"MSO_SITE_GROUP_NAME\": \"\",\n        \"MGMT_PREFIX_INTERNAL\": \"\",\n        \"DHCP_IPV6_ENABLE_INTERNAL\": \"\",\n        \"BGP_AUTH_KEY_TYPE\": \"\",\n        \"SITE_ID\": \"\",\n        \"temp_anycast_gateway\": \"anycast_gateway\",\n        \"BRFIELD_DEBUG_FLAG\": \"Disable\",\n        \"BGP_AS\": \"65011\",\n        \"BOOTSTRAP_MULTISUBNET\": \"#Scope_Start_IP, Scope_End_IP, Scope_Default_Gateway, Scope_Subnet_Prefix\",\n        \"ISIS_P2P_ENABLE\": \"\",\n        \"ENABLE_NGOAM\": \"true\",\n        \"CDP_ENABLE\": \"false\",\n        \"PTP_LB_ID\": \"\",\n        \"DHCP_IPV6_ENABLE\": \"DHCPv4\",\n        \"MACSEC_KEY_STRING\": \"\",\n        \"OSPF_AUTH_KEY\": \"\",\n        \"ENABLE_FABRIC_VPC_DOMAIN_ID_PREV\": \"\",\n        \"EXTRA_CONF_LEAF\": \"\",\n        \"DHCP_START\": \"172.22.150.99\",\n        \"vrf_extension_template\": \"Default_VRF_Extension_Universal\",\n        \"ENABLE_TRM\": \"\",\n        \"ENABLE_PVLAN_PREV\": \"false\",\n        \"FEATURE_PTP_INTERNAL\": \"false\",\n        \"ENABLE_NXAPI_HTTP\": \"true\",\n        \"MPLS_LB_ID\": \"\",\n        \"abstract_isis\": \"base_isis_level2\",\n        \"FABRIC_VPC_DOMAIN_ID_PREV\": \"\",\n        \"ROUTE_MAP_SEQUENCE_NUMBER_RANGE\": \"1-65534\",\n        \"NETWORK_VLAN_RANGE\": \"2300-2999\",\n        \"STATIC_UNDERLAY_IP_ALLOC\": \"false\",\n        \"MGMT_V6PREFIX_INTERNAL\": \"\",\n        \"MPLS_HANDOFF\": \"false\",\n        \"STP_BRIDGE_PRIORITY\": \"\",\n        \"scheduledTime\": \"\",\n        \"ANYCAST_LB_ID\": \"\",\n        \"MACSEC_CIPHER_SUITE\": \"\",\n        \"STP_VLAN_RANGE\": \"\",\n        \"MSO_CONTROLER_ID\": \"\",\n        \"POWER_REDUNDANCY_MODE\": \"ps-redundant\",\n        \"BFD_ENABLE\": \"false\",\n        \"abstract_extra_config_leaf\": \"extra_config_leaf\",\n        \"ANYCAST_GW_MAC\": \"2020.0000.00aa\",\n        \"abstract_dhcp\": \"base_dhcp\",\n        \"default_pvlan_sec_network\": \"\",\n        \"EXTRA_CONF_SPINE\": \"\",\n        \"NTP_SERVER_VRF\": \"\",\n        \"SPINE_SWITCH_CORE_INTERFACES\": \"\",\n        \"LINK_STATE_ROUTING_TAG\": \"UNDERLAY\",\n        \"ISIS_OVERLOAD_ELAPSE_TIME\": \"\",\n        \"RP_LB_ID\": \"\",\n        \"BOOTSTRAP_CONF\": \"\",\n        \"LINK_STATE_ROUTING\": \"ospf\",\n        \"ISIS_AUTH_KEY\": \"\",\n        \"network_extension_template\": \"Default_Network_Extension_Universal\",\n        \"DNS_SERVER_IP_LIST\": \"\",\n        \"ENABLE_EVPN\": \"true\",\n        \"abstract_multicast\": \"base_multicast_11_1\",\n        \"VPC_DELAY_RESTORE_TIME\": \"60\",\n        \"BFD_AUTH_KEY\": \"\",\n        \"AGENT_INTF\": \"eth0\",\n        \"FABRIC_MTU\": \"9216\",\n        \"L3VNI_MCAST_GROUP\": \"\",\n        \"UNNUM_BOOTSTRAP_LB_ID\": \"\",\n        \"VPC_DOMAIN_ID_RANGE\": \"1-1000\",\n        \"HOST_INTF_ADMIN_STATE\": \"true\",\n        \"BFD_IBGP_ENABLE\": \"\",\n        \"VPC_AUTO_RECOVERY_TIME\": \"360\",\n        \"DNS_SERVER_VRF\": \"\",\n        \"SYSLOG_SEV\": \"\",\n        \"abstract_loopback_interface\": \"int_fabric_loopback_11_1\",\n        \"SYSLOG_SERVER_VRF\": \"\",\n        \"EXTRA_CONF_INTRA_LINKS\": \"\",\n        \"SNMP_SERVER_HOST_TRAP\": \"true\",\n        \"PIM_HELLO_AUTH_KEY\": \"\",\n        \"abstract_extra_config_spine\": \"extra_config_spine\",\n        \"temp_vpc_domain_mgmt\": \"vpc_domain_mgmt\",\n        \"V6_SUBNET_RANGE\": \"\",\n        \"SUBINTERFACE_RANGE\": \"2-511\",\n        \"BGP_AUTH_KEY\": \"\",\n        \"abstract_routed_host\": \"int_routed_host\",\n        \"ENABLE_PVLAN\": \"false\",\n        \"INBAND_DHCP_SERVERS\": \"\",\n        \"default_network\": \"Default_Network_Universal\",\n        \"ISIS_AUTH_KEYCHAIN_KEY_ID\": \"\",\n        \"MGMT_V6PREFIX\": \"\",\n        \"abstract_feature_spine\": \"base_feature_spine_upg\",\n        \"ENABLE_DEFAULT_QUEUING_POLICY\": \"false\",\n        \"ANYCAST_BGW_ADVERTISE_PIP\": \"false\",\n        \"NETFLOW_EXPORTER_LIST\": \"\",\n        \"RP_COUNT\": \"\",\n        \"abstract_vlan_interface\": \"int_fabric_vlan_11_1\",\n        \"FABRIC_NAME\": \"Easy_Fabric_1\",\n        \"abstract_pim_interface\": \"pim_interface\",\n        \"PM_ENABLE\": \"false\",\n        \"LOOPBACK0_IPV6_RANGE\": \"\",\n        \"DEFAULT_VRF_REDIS_BGP_RMAP\": \"\",\n        \"NVE_LB_ID\": \"1\",\n        \"OVERLAY_MODE_PREV\": \"\",\n        \"VPC_DELAY_RESTORE\": \"150\",\n        \"ENABLE_VPC_PEER_LINK_NATIVE_VLAN\": \"false\",\n        \"L2_HOST_INTF_MTU\": \"9216\",\n        \"abstract_route_map\": \"route_map\",\n        \"INBAND_MGMT_PREV\": \"false\",\n        \"abstract_vpc_domain\": \"base_vpc_domain_11_1\",\n        \"ACTIVE_MIGRATION\": \"false\",\n        \"COPP_POLICY\": \"strict\",\n        \"DHCP_END_INTERNAL\": \"\",\n        \"BOOTSTRAP_ENABLE\": \"true\",\n        \"default_vrf\": \"Default_VRF_Universal\",\n        \"OSPF_AREA_ID\": \"0.0.0.0\",\n        \"abstract_extra_config_tor\": \"extra_config_tor\",\n        \"SYSLOG_SERVER_IP_LIST\": \"\",\n        \"ENABLE_TENANT_DHCP\": \"true\",\n        \"BOOTSTRAP_ENABLE_PREV\": \"false\",\n        \"ANYCAST_RP_IP_RANGE_INTERNAL\": \"\",\n        \"RR_COUNT\": \"2\",\n        \"BOOTSTRAP_MULTISUBNET_INTERNAL\": \"\",\n        \"MGMT_GW\": \"172.22.150.1\",\n        \"UNNUM_DHCP_START\": \"\",\n        \"MGMT_PREFIX\": \"24\",\n        \"abstract_bgp_rr\": \"evpn_bgp_rr\",\n        \"INBAND_MGMT\": \"false\",\n        \"abstract_bgp\": \"base_bgp\",\n        \"ENABLE_NETFLOW_PREV\": \"\",\n        \"SUBNET_RANGE\": \"172.22.150.0/24\",\n        \"DEAFULT_QUEUING_POLICY_CLOUDSCALE\": \"\",\n        \"MULTICAST_GROUP_SUBNET\": \"\",\n        \"FABRIC_INTERFACE_TYPE\": \"p2p\",\n        \"FABRIC_VPC_QOS\": \"false\",\n        \"AAA_REMOTE_IP_ENABLED\": \"false\",\n        \"L2_SEGMENT_ID_RANGE\": \"30000-49000\"\n    },\n    \"vrfTemplate\": \"Default_VRF_Universal\",\n    \"networkTemplate\": \"Default_Network_Universal\",\n    \"vrfExtensionTemplate\": \"Default_VRF_Extension_Universal\",\n    \"networkExtensionTemplate\": \"Default_Network_Extension_Universal\"\n}"
+						},
+						{
+							"name": "500 response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"BGP_AS\": {{test_fabric_bgp_as}},\n    \"DCI_SUBNET_RANGE\": \"10.234.0.0/16\",\n    \"REPLICATION_MODE\": \"Ingress\",\n    \"SUBNET_RANGE\": \"172.22.150.0/24\",\n    \"LOOPBACK0_IP_RANGE\": \"10.11.0.0/16\",\n    \"LOOPBACK1_IP_RANGE\": \"10.12.0.0/16\",\n    \"DHCP_ENABLE\": true,\n    \"DHCP_START\": \"172.22.150.99\",\n    \"DHCP_END\": \"172.22.150.99\",\n    \"BOOTSTRAP_ENABLE\": true,\n    \"MGMT_GW\": \"172.22.150.1\",\n    \"VRF_LITE_AUTOCONFIG\": \"Back2BackOnly\"\n} ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/appcenter/cisco/ndfc/api/v1/lan-fabric/rest/control/fabrics/{{test_fabric_name}}/Easy_Fabric",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"appcenter",
+										"cisco",
+										"ndfc",
+										"api",
+										"v1",
+										"lan-fabric",
+										"rest",
+										"control",
+										"fabrics",
+										"{{test_fabric_name}}",
+										"Easy_Fabric"
+									],
+									"query": [
+										{
+											"key": "BGP_AS",
+											"value": "65003",
+											"description": "BGP AS",
+											"disabled": true
+										},
+										{
+											"key": "REPLICATION_MODE",
+											"value": "Ingress",
+											"disabled": true
+										},
+										{
+											"key": "SUBNET_RANGE",
+											"value": "10.10.0.0/16",
+											"disabled": true
+										},
+										{
+											"key": "LOOPBACK1_IP_RANGE",
+											"value": "10.12.0.0/16",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "38"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 24 Jan 2023 02:50:13 GMT"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "-1"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "-1"
+								},
+								{
+									"key": "X-Ratelimit-Reset",
+									"value": "1559582945"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								}
+							],
+							"cookie": [],
+							"body": "ND Site with name LC_1 already exists."
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "Cisco!2345",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
