@@ -1,0 +1,25 @@
+---
+# https://github.com/ansible-collections/cisco.nxos
+-   gather_facts: false
+    hosts: dc1-1311
+    name: nxos_interfaces description
+    tasks:
+    -   cisco.nxos.nxos_interfaces:
+            config:
+            -   name: Ethernet1/11
+                description: aaa
+            -   name: Ethernet1/12
+                description: bbb
+            state: merged
+        name: 'Eth1/11-12, Configure interface descriptions'
+    vars:
+        ansible_command_timeout: 90
+        ansible_connection: httpapi
+        ansible_host_key_checking: 'no'
+        ansible_httpapi_use_ssl: true
+        ansible_httpapi_validate_certs: false
+        ansible_network_os: nxos
+        ansible_password: mypassword
+        ansible_python_interpreter: auto_silent
+        ansible_user: admin
+...
