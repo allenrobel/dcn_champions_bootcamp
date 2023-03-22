@@ -1,7 +1,7 @@
 ---
 # https://github.com/ansible-collections/cisco.nxos
 -   gather_facts: false
-    hosts: dc1-1311
+    hosts: ef1-leaf-1
     name: nxos_interfaces description
     tasks:
     -   cisco.nxos.nxos_interfaces:
@@ -19,7 +19,7 @@
         ansible_httpapi_use_ssl: true
         ansible_httpapi_validate_certs: false
         ansible_network_os: nxos
-        ansible_password: mypassword
+        ansible_password: Cisco!2345
         ansible_python_interpreter: auto_silent
         ansible_user: admin
 ...

@@ -1,6 +1,6 @@
 vars:
   ansible_user: admin
-  ansible_password: mypassword
+  ansible_password: Cisco!2345
   ansible_network_os: nxos
   ansible_connection: httpapi
   ansible_python_interpreter: auto_legacy

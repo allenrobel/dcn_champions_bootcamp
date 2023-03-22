@@ -1,24 +1,21 @@
-all:
-  hosts:
+leaf:
   vars:
     ansible_user: admin
-    ansible_password: mypassword
+    ansible_password: Cisco!2345
     ansible_network_os: nxos
     ansible_connection: httpapi
-    ansible_python_interpreter: auto_legacy_silent
-  children:
-    tor:
-      hosts:
-        dc1-1311:
-          ansible_host: 172.22.150.102
-    spine:
-      hosts:
-        dc1-1211:
-          ansible_host: 172.22.150.55
-        dc1-1212:
-          ansible_host: 172.22.150.56
-    bgw:
-      hosts:
-        dc1-1111:
-          ansible_host: 172.22.150.54
+    ansible_python_interpreter: auto_legacy
+  hosts:
+    ef1-leaf-1:
+      ansible_host: 172.22.150.99
+      vars:
+        ansible_user: admin
+        ansible_password: Cisco!2345
+        ansible_network_os: nxos
+        ansible_connection: httpapi
+        ansible_python_interpreter: auto_legacy
+spine:
+  hosts:
+    ef1-spine-1:
+      ansible_host: 172.22.150.55
 
