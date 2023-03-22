@@ -1,0 +1,18 @@
+---
+- name: NDFC example playbook
+  gather_facts: false
+  hosts: ndfc
+  tasks:
+  - name: Add switch to fabric
+    cisco.dcnm.dcnm_inventory:
+      fabric: ef1
+      state: merged
+      config:
+      - seed_ip: 172.22.150.99
+        auth_proto: MD5
+        user_name: admin
+        password: Cisco!2345
+        max_hops: 0
+        role: leaf
+        preserve_config: False
+...
