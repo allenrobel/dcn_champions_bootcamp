@@ -163,6 +163,7 @@ def cli_conf(d):
     d["payload"] = payload
     return send_request_json(d)
 
+# These will be in all 'show CLI' responses
 def get_output(response):
     try:
         response_json = response.json()['ins_api']['outputs']['output']
@@ -177,6 +178,7 @@ def get_output(response):
 def get_body(response):
     return get_output(response)["body"]
 
+# These are specific to 'show interface'
 def get_table_interface(response):
     return get_body(response)["TABLE_interface"]
 def get_row_interface(response):
