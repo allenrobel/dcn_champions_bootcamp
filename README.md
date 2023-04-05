@@ -2,7 +2,7 @@
 
 ## What's in this repo?
 
-The files in this repo were either used, or referenced, during the SP DCN Champoins bootcamp, specifically:
+The files in this repo were either used, or referenced, during the SP DCN Champions bootcamp, specifically:
 
 1. The postman directory contains:
     a. The Demo collection used to add a fabric to an NDFC instance using REST
