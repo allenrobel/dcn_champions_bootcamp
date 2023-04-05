@@ -1,21 +1,10 @@
-leaf:
-  vars:
-    ansible_user: admin
-    ansible_password: Cisco!2345
-    ansible_network_os: nxos
-    ansible_connection: httpapi
-    ansible_python_interpreter: auto_legacy
-  hosts:
-    ef1-leaf-1:
-      ansible_host: 172.22.150.99
-      vars:
-        ansible_user: admin
-        ansible_password: Cisco!2345
-        ansible_network_os: nxos
-        ansible_connection: httpapi
-        ansible_python_interpreter: auto_legacy
-spine:
-  hosts:
-    ef1-spine-1:
-      ansible_host: 172.22.150.55
-
+all:
+    children:
+        leaf:
+            hosts:
+                ef1-leaf-1:
+                    ansible_host: 10.1.1.1
+        spine:
+            hosts:
+                ef1-spine-1:
+                    ansible_host: 10.1.1.2
