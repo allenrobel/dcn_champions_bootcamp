@@ -1,7 +1,7 @@
 ---
 # https://github.com/ansible-collections/cisco.nxos
--   gather_facts: false
-    hosts: ef1-leaf-1
+-   hosts: ef1-leaf-1
+    gather_facts: false
     name: nxos_interfaces description
     tasks:
     -   cisco.nxos.nxos_interfaces:
@@ -12,14 +12,4 @@
                 description: bbb
             state: merged
         name: 'Eth1/11-12, Configure interface descriptions'
-    vars:
-        ansible_command_timeout: 90
-        ansible_connection: httpapi
-        ansible_host_key_checking: 'no'
-        ansible_httpapi_use_ssl: true
-        ansible_httpapi_validate_certs: false
-        ansible_network_os: nxos
-        ansible_password: Cisco!2345
-        ansible_python_interpreter: auto_silent
-        ansible_user: admin
 ...

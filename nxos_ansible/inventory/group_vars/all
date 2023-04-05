@@ -1,0 +1,8 @@
+---
+ansible_command_timeout: 90
+ansible_python_interpreter: auto_legacy
+ansible_httpapi_use_ssl: true
+ansible_httpapi_validate_certs: false
+ansible_host_key_checking: 'no'
+ansible_connection: httpapi
+ansible_network_os: nxos
