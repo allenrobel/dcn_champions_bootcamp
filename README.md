@@ -4,7 +4,8 @@
 
 The files in this repo were either used, or referenced, during the SP DCN Champions bootcamp, specifically:
 
-1. The postman directory contains:
+1. The postman directory contains
++
 a. The Demo collection used to add a fabric to an NDFC instance using REST
 b. A minimal ND (Nexus Dashboard) collection (enough to login)
 c. A more complete NDFC (Nexus Dashboard Fabric Controller) collection.
