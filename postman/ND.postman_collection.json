@@ -57,7 +57,21 @@
 					"name": "Get a list of default authentication login domain",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/nexus/infra/api/aaa/v4/defaultauth",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"nexus",
+								"infra",
+								"api",
+								"aaa",
+								"v4",
+								"defaultauth"
+							]
+						}
 					},
 					"response": []
 				},
