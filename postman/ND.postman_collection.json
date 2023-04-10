@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"domain\": \"local\",\n    \"userName\": \"{{ndfc_username}}\",\n    \"userPasswd\":  \"{{ndfc_password}}\" \n}",
+							"raw": "{\n\"domain\": \"{{ndfc_domain}}\",\n\"userName\": \"{{ndfc_username}}\",\n\"userPasswd\": \"{{ndfc_password}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -30,28 +30,127 @@
 							],
 							"path": [
 								"login"
-							],
-							"query": [
-								{
-									"key": "",
-									"value": "",
-									"disabled": true
-								},
-								{
-									"key": "",
-									"value": "",
-									"disabled": true
-								},
-								{
-									"key": "",
-									"value": "",
-									"disabled": true
-								}
 							]
 						},
 						"description": "Login to an ND Controller"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "500 response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"domain\": \"{{ndfc_domain}}\",\n\"userName\": \"{{ndfc_username}}\",\n\"userPasswd\": \"{{ndfc_password}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 10 Apr 2023 18:00:03 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"body": "{\"error\":\"Invalid parameters.\"}"
+						},
+						{
+							"name": "200 response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"domain\": \"{{ndfc_domain}}\",\n\"userName\": \"{{ndfc_username}}\",\n\"userPasswd\": \"{{ndfc_password}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "AuthCookie=eyJhbGciOiJSUzI1NiIsImtpZCI6ImM5NmxmNTV3dnRkbDkzazl1enA5OGp0OXRncXRmMDRsIiwidHlwIjoiSldUIn0.eyJhdnBhaXIiOiJzaGVsbDpkb21haW5zPWFsbC9hZG1pbi8iLCJjbHVzdGVyIjoiNGU0NDJkMzEtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiwiZXhwIjoxNjgxMTUxMDE5LCJpYXQiOjE2ODExNDk4MTksImlkIjoiNDhkMTA1YmRmYmM0OWE1ZmNmMzlhMTBiOTYxMzg2ZTYxZGZlNDAwODVjYjAzMTVkODE4Yjc2MWM1NzM1ZGFmYSIsImlzcyI6Im5kIiwiaXNzLWhvc3QiOiIxNzIuMjIuMTUwLjI0NCIsInJiYWMiOlt7ImRvbWFpbiI6ImFsbCIsInJvbGVzUiI6MTY3NzcyMTYsInJvbGVzVyI6MSwicm9sZXMiOltbImFkbWluIiwiV3JpdGVQcml2Il0sWyJhcHAtdXNlciIsIlJlYWRQcml2Il1dfV0sInNlc3Npb25pZCI6IlJqQXZ5QktyNnFydmlDbzB3NU0ySGVpYSIsInVzZXJmbGFncyI6MCwidXNlcmlkIjoyNTAwMiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJ0eXBlIjoibG9jYWwifQ.hwNWJbWAXaUnvVy3nj79Xtyg1M3pe21RB1HCOPfJrS0XsHXHY6vOltAEjEPghW35S_l6Zia0uNfdhY0LOSuC8IB1RpJeyQMfT2qAWp3AX218Hi1N0ccXQNLm3TN1j9f9NEKc2eTWu6znFTkxdQ-TP0ljiCi-lzZRiMg-qfwRa6Xzc5DBlI9Sqj-ECYzGNvhYFMOrZS24WVlwrfK3MlyKXiiMqZYgMBgNArLJ8icHOL5Qwi-YM8nYd3T52moQlGaQyp-k_2Ks03nNPh6_Bgy60pIfoKbr9o-zxLTuXpKSvPD24p6HspcBmVGBI4jwBzUqW_i_HKP0hzubPuHNUAz70g; Max-Age=1200; Secure; SameSite=Strict"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Apr 2023 18:03:39 GMT"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"jwttoken\": \"eyJhbGciOiJSUzI1NiIsImtpZCI6ImM5NmxmNTV3dnRkbDkzazl1enA5OGp0OXRncXRmMDRsIiwidHlwIjoiSldUIn0.eyJhdnBhaXIiOiJzaGVsbDpkb21haW5zPWFsbC9hZG1pbi8iLCJjbHVzdGVyIjoiNGU0NDJkMzEtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiwiZXhwIjoxNjgxMTUxMDE5LCJpYXQiOjE2ODExNDk4MTksImlkIjoiNDhkMTA1YmRmYmM0OWE1ZmNmMzlhMTBiOTYxMzg2ZTYxZGZlNDAwODVjYjAzMTVkODE4Yjc2MWM1NzM1ZGFmYSIsImlzcyI6Im5kIiwiaXNzLWhvc3QiOiIxNzIuMjIuMTUwLjI0NCIsInJiYWMiOlt7ImRvbWFpbiI6ImFsbCIsInJvbGVzUiI6MTY3NzcyMTYsInJvbGVzVyI6MSwicm9sZXMiOltbImFkbWluIiwiV3JpdGVQcml2Il0sWyJhcHAtdXNlciIsIlJlYWRQcml2Il1dfV0sInNlc3Npb25pZCI6IlJqQXZ5QktyNnFydmlDbzB3NU0ySGVpYSIsInVzZXJmbGFncyI6MCwidXNlcmlkIjoyNTAwMiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJ0eXBlIjoibG9jYWwifQ.hwNWJbWAXaUnvVy3nj79Xtyg1M3pe21RB1HCOPfJrS0XsHXHY6vOltAEjEPghW35S_l6Zia0uNfdhY0LOSuC8IB1RpJeyQMfT2qAWp3AX218Hi1N0ccXQNLm3TN1j9f9NEKc2eTWu6znFTkxdQ-TP0ljiCi-lzZRiMg-qfwRa6Xzc5DBlI9Sqj-ECYzGNvhYFMOrZS24WVlwrfK3MlyKXiiMqZYgMBgNArLJ8icHOL5Qwi-YM8nYd3T52moQlGaQyp-k_2Ks03nNPh6_Bgy60pIfoKbr9o-zxLTuXpKSvPD24p6HspcBmVGBI4jwBzUqW_i_HKP0hzubPuHNUAz70g\",\n    \"username\": \"admin\",\n    \"usertype\": \"local\",\n    \"rbac\": \"[{\\\"domain\\\":\\\"all\\\",\\\"rolesR\\\":16777216,\\\"rolesW\\\":1,\\\"roles\\\":[[\\\"admin\\\",\\\"WritePriv\\\"],[\\\"app-user\\\",\\\"ReadPriv\\\"]]}]\",\n    \"statusCode\": 200,\n    \"token\": \"eyJhbGciOiJSUzI1NiIsImtpZCI6ImM5NmxmNTV3dnRkbDkzazl1enA5OGp0OXRncXRmMDRsIiwidHlwIjoiSldUIn0.eyJhdnBhaXIiOiJzaGVsbDpkb21haW5zPWFsbC9hZG1pbi8iLCJjbHVzdGVyIjoiNGU0NDJkMzEtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiwiZXhwIjoxNjgxMTUxMDE5LCJpYXQiOjE2ODExNDk4MTksImlkIjoiNDhkMTA1YmRmYmM0OWE1ZmNmMzlhMTBiOTYxMzg2ZTYxZGZlNDAwODVjYjAzMTVkODE4Yjc2MWM1NzM1ZGFmYSIsImlzcyI6Im5kIiwiaXNzLWhvc3QiOiIxNzIuMjIuMTUwLjI0NCIsInJiYWMiOlt7ImRvbWFpbiI6ImFsbCIsInJvbGVzUiI6MTY3NzcyMTYsInJvbGVzVyI6MSwicm9sZXMiOltbImFkbWluIiwiV3JpdGVQcml2Il0sWyJhcHAtdXNlciIsIlJlYWRQcml2Il1dfV0sInNlc3Npb25pZCI6IlJqQXZ5QktyNnFydmlDbzB3NU0ySGVpYSIsInVzZXJmbGFncyI6MCwidXNlcmlkIjoyNTAwMiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJ0eXBlIjoibG9jYWwifQ.hwNWJbWAXaUnvVy3nj79Xtyg1M3pe21RB1HCOPfJrS0XsHXHY6vOltAEjEPghW35S_l6Zia0uNfdhY0LOSuC8IB1RpJeyQMfT2qAWp3AX218Hi1N0ccXQNLm3TN1j9f9NEKc2eTWu6znFTkxdQ-TP0ljiCi-lzZRiMg-qfwRa6Xzc5DBlI9Sqj-ECYzGNvhYFMOrZS24WVlwrfK3MlyKXiiMqZYgMBgNArLJ8icHOL5Qwi-YM8nYd3T52moQlGaQyp-k_2Ks03nNPh6_Bgy60pIfoKbr9o-zxLTuXpKSvPD24p6HspcBmVGBI4jwBzUqW_i_HKP0hzubPuHNUAz70g\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Get a list of default authentication login domain",
